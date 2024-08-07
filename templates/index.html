@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous GitHub Project Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Anonymous GitHub Project Search</h1>
+        <p class="description">Développé par <span class="developer">trhacknon</span></p>
+        <p class="description">Utilisez cette application pour trouver des projets GitHub correspondant à vos termes de recherche en utilisant l'intelligence artificielle.</p>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.search_query.label }}
+            {{ form.search_query(size=50) }}
+            {{ form.submit(class="btn") }}
+        </form>
+        {% if result %}
+        <h2 class="result-title">Search Results</h2>
+        <pre class="result">{{ result }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
