@@ -28,9 +28,9 @@ def apply_security_headers(response):
 
 # Charger les clés API OpenAI
 api_keys = [
-    os.getenv('OPENAI_API_KEY_1'),
-    os.getenv('OPENAI_API_KEY_2'),
-    os.getenv('OPENAI_API_KEY_3')
+    os.getenv('OPENAI_API_KEY'),
+    os.getenv('OPENAI_API_KEY2'),
+    os.getenv('OPENAI_API_KEY3')
 ]
 
 # Créer un itérateur cyclique pour les clés API
