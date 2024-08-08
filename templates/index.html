@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Anonymous GitHub Project Search</h1>
+        <h1 class="title">Anonymous GitHub Project Search <span class="highlight">by trhacknon</span></h1>
         <p class="description">Développé par <span class="developer">trhacknon</span></p>
         <p class="description">Utilisez cette application pour trouver des projets GitHub correspondant à vos termes de recherche en utilisant l'intelligence artificielle.</p>
         <form method="POST">
@@ -20,7 +20,16 @@
         </form>
         {% if result %}
         <h2 class="result-title">Search Results</h2>
-        <pre class="result">{{ result }}</pre>
+        <div class="result-container">
+            {% set results = result.split('\n') %}
+            {% for item in results %}
+            <div class="result-item">
+                {% if item %}
+                <span class="result-number">{{ loop.index }}</span>. <a href="{{ item }}" target="_blank">{{ item }}</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
         {% endif %}
     </div>
 </body>
